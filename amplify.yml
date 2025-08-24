@@ -1,0 +1,18 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd frontend/create-app
+        - npm ci
+    build:
+      commands:
+        - cd frontend/create-app
+        - npm run build
+  artifacts:
+    baseDirectory: frontend/create-app/dist
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - frontend/create-app/node_modules/**/*
